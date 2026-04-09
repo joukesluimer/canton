@@ -32,8 +32,8 @@
   .card.ok { border-left-color:#4caf50; background:#f3faf3; }
   .card.warn { border-left-color:#ff9800; background:#fff9ec; }
   .card.bad { border-left-color:#e53935; background:#fdf2f2; }
-  .card-title { font-size:15px; font-weight:700; color:#1F3864; line-height:1.3; }
-  .card-spec { font-size:12px; color:#5a6270; margin-top:3px; line-height:1.3; }
+  .card-title { font-size:17px; font-weight:700; color:#1F3864; line-height:1.3; }
+  .card-spec { font-size:13px; color:#5a6270; margin-top:4px; line-height:1.35; }
   .ref-row { display:flex; gap:8px; margin-top:10px; font-size:12px; flex-wrap:wrap; }
   .ref-badge { background:#f0f2f5; padding:4px 8px; border-radius:4px; }
   .ref-badge b { color:#1F3864; font-size:13px; }
@@ -93,10 +93,59 @@
   .modal-box button { flex:1; padding:10px; border-radius:6px; border:none; font-size:14px; font-weight:600; cursor:pointer; }
 
   .card { position:relative; }
-  .card-img { position:absolute; top:10px; right:10px; width:56px; height:56px; border-radius:8px; overflow:hidden; background:#f0f2f5; border:1px solid #e3e5e8; }
+  .card-img { position:absolute; top:12px; right:12px; width:72px; height:72px; border-radius:8px; overflow:hidden; background:#f0f2f5; border:1px solid #e3e5e8; }
   .card-img img { width:100%; height:100%; object-fit:cover; display:block; }
-  .card-title, .card-spec { padding-right:64px; }
+  .card-title, .card-spec { padding-right:86px; }
 
+
+  /* Supplier view */
+  .sup-add-btn { display:block; width:calc(100% - 24px); margin:0 12px 12px 12px; padding:14px; background:#1F3864; color:#fff; border:none; border-radius:10px; font-size:15px; font-weight:600; cursor:pointer; }
+  .sup-card { background:#fff; border-radius:10px; margin-bottom:12px; padding:14px; box-shadow:0 1px 3px rgba(0,0,0,0.06); border-left:4px solid #1F3864; position:relative; }
+  .sup-card.hot { border-left-color:#e53935; }
+  .sup-card.warm { border-left-color:#ff9800; }
+  .sup-card.cold { border-left-color:#78909c; }
+  .sup-card.done { border-left-color:#4caf50; background:#f3faf3; }
+  .sup-card-head { display:flex; gap:12px; align-items:flex-start; }
+  .sup-card-photo { width:64px; height:64px; border-radius:8px; overflow:hidden; background:#f0f2f5; flex-shrink:0; border:1px solid #e3e5e8; display:flex; align-items:center; justify-content:center; font-size:22px; color:#9aa0a6; }
+  .sup-card-photo img { width:100%; height:100%; object-fit:cover; display:block; }
+  .sup-card-body { flex:1; min-width:0; }
+  .sup-company { font-size:16px; font-weight:700; color:#1F3864; line-height:1.25; }
+  .sup-contact { font-size:13px; color:#5a6270; margin-top:2px; }
+  .sup-meta { display:flex; flex-wrap:wrap; gap:6px; margin-top:8px; font-size:11px; }
+  .sup-meta .chip { background:#f0f2f5; padding:3px 8px; border-radius:10px; color:#1F3864; font-weight:600; }
+  .sup-meta .chip.phase { background:#E2EFDA; color:#2e7d32; }
+  .sup-meta .chip.status-hot { background:#ffebee; color:#c62828; }
+  .sup-meta .chip.status-warm { background:#fff3e0; color:#ef6c00; }
+  .sup-meta .chip.status-cold { background:#eceff1; color:#455a64; }
+  .sup-meta .chip.status-done { background:#c8e6c9; color:#2e7d32; }
+  .sup-rating { color:#ffc107; font-size:14px; letter-spacing:1px; }
+  .sup-notes { font-size:12px; color:#5a6270; margin-top:8px; font-style:italic; line-height:1.4; }
+  .sup-actions { display:flex; gap:6px; margin-top:10px; }
+  .sup-actions button { flex:1; padding:8px; border-radius:6px; border:1px solid #d0d4d9; background:#fff; font-size:12px; font-weight:600; cursor:pointer; color:#1F3864; }
+  .sup-actions button.del { color:#c62828; border-color:#ffcdd2; }
+  /* Supplier editor modal */
+  .sup-edit { background:#fff; border-radius:12px; padding:20px; max-width:560px; width:100%; max-height:90vh; overflow:auto; }
+  .sup-edit h3 { margin:0 0 14px 0; color:#1F3864; font-size:18px; }
+  .sup-edit label { display:block; font-size:11px; font-weight:700; color:#5a6270; margin:10px 0 4px 0; text-transform:uppercase; letter-spacing:0.4px; }
+  .sup-edit input[type=text], .sup-edit input[type=tel], .sup-edit input[type=email], .sup-edit textarea, .sup-edit select { width:100%; padding:11px 10px; border:1px solid #d0d4d9; border-radius:8px; font-size:15px; font-family:inherit; background:#fff; }
+  .sup-edit textarea { min-height:70px; resize:vertical; }
+  .sup-edit .row2 { display:flex; gap:10px; }
+  .sup-edit .row2 > div { flex:1; }
+  .sup-edit .cat-chips { display:flex; flex-wrap:wrap; gap:6px; }
+  .sup-edit .cat-chip { padding:8px 12px; background:#f0f2f5; border:1px solid #d0d4d9; border-radius:16px; font-size:13px; cursor:pointer; user-select:none; }
+  .sup-edit .cat-chip.on { background:#1F3864; color:#fff; border-color:#1F3864; }
+  .sup-edit .star-row { font-size:28px; letter-spacing:6px; color:#e0e0e0; cursor:pointer; user-select:none; }
+  .sup-edit .star-row .on { color:#ffc107; }
+  .sup-edit .status-row { display:flex; gap:6px; flex-wrap:wrap; }
+  .sup-edit .status-btn { padding:8px 12px; border-radius:16px; border:1px solid #d0d4d9; background:#fff; font-size:13px; cursor:pointer; }
+  .sup-edit .status-btn.on { background:#1F3864; color:#fff; border-color:#1F3864; }
+  .sup-edit .photo-area { border:2px dashed #d0d4d9; border-radius:10px; padding:20px; text-align:center; cursor:pointer; background:#fafbfc; min-height:140px; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:8px; }
+  .sup-edit .photo-area img { max-width:100%; max-height:220px; border-radius:6px; display:block; }
+  .sup-edit .photo-area .hint { font-size:12px; color:#5a6270; }
+  .sup-edit .btn-row { display:flex; gap:8px; margin-top:18px; position:sticky; bottom:0; background:#fff; padding-top:10px; }
+  .sup-edit .btn-row button { flex:1; padding:13px; border-radius:8px; border:none; font-size:15px; font-weight:600; cursor:pointer; }
+  .sup-empty { text-align:center; padding:50px 20px; color:#5a6270; }
+  .sup-empty .icon { font-size:48px; margin-bottom:12px; }
 </style>
 </head>
 <body>
@@ -142,9 +191,13 @@ let onlyFilledFilter = false;
 function loadState() {
   try {
     const s = localStorage.getItem(STORAGE_KEY);
-    if (s) return JSON.parse(s);
+    if (s) {
+      const parsed = JSON.parse(s);
+      if (!parsed.suppliers) parsed.suppliers = [];
+      return parsed;
+    }
   } catch(e){}
-  return { rate: 0.92, entries: {} };
+  return { rate: 0.92, entries: {}, suppliers: [] };
 }
 function saveState() { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); }
 
@@ -192,9 +245,15 @@ function renderTabs() {
     const b = document.createElement('button');
     b.className = 'tab' + (k === currentCat ? ' active' : '');
     b.innerHTML = `${c.icon} ${c.label}<span class="count">${c.items.length}</span>`;
-    b.onclick = () => { currentCat = k; searchTerm=''; document.getElementById('search').value=''; renderAll(); ; };
+    b.onclick = () => { currentCat = k; searchTerm=''; document.getElementById('search').value=''; renderAll(); };
     tabs.appendChild(b);
   });
+  // Supplier tab
+  const sb = document.createElement('button');
+  sb.className = 'tab' + (currentCat === 'suppliers' ? ' active' : '');
+  sb.innerHTML = `🏭 Leveranciers<span class="count">${(state.suppliers||[]).length}</span>`;
+  sb.onclick = () => { currentCat = 'suppliers'; searchTerm=''; document.getElementById('search').value=''; renderAll(); };
+  tabs.appendChild(sb);
 }
 
 function renderIntro() {
@@ -314,12 +373,240 @@ function renderItems() {
   });
 }
 
+
+// ============ SUPPLIERS ============
+function renderSupplierView() {
+  document.getElementById('intro').style.display = 'none';
+  document.getElementById('stats').style.display = 'none';
+  document.querySelector('.toolbar').style.display = 'none';
+  const container = document.getElementById('items');
+  const sups = state.suppliers || [];
+  const term = searchTerm.toLowerCase();
+  const filtered = term ? sups.filter(s => ((s.company||'')+' '+(s.contact||'')+' '+(s.booth||'')+' '+(s.notes||'')).toLowerCase().includes(term)) : sups;
+  let html = `<button class="sup-add-btn" onclick="openSupplierEditor()">+ Nieuwe leverancier toevoegen</button>`;
+  html += `<div style="padding:0 12px 8px 12px;"><input class="search" style="width:100%;padding:10px 12px;border:1px solid #d0d4d9;border-radius:8px;font-size:14px;background:#fff;" placeholder="Zoek leverancier..." id="supSearch" value="${escapeHtml(searchTerm)}"></div>`;
+  if (!filtered.length) {
+    html += `<div class="sup-empty"><div class="icon">🏭</div><div>Nog geen leveranciers toegevoegd.<br>Tik op <b>+ Nieuwe leverancier</b> om te beginnen.</div></div>`;
+  } else {
+    // sort by updatedAt desc
+    filtered.sort((a,b) => (b.updatedAt||0) - (a.updatedAt||0));
+    filtered.forEach(s => {
+      const statusCls = s.status || '';
+      const stars = s.rating ? '★'.repeat(s.rating) + '☆'.repeat(5-s.rating) : '';
+      const catChips = (s.categories||[]).map(k => CATALOG[k] ? `<span class="chip">${CATALOG[k].icon} ${CATALOG[k].label}</span>` : '').join('');
+      const statusLabel = {hot:'🔥 Hot', warm:'👍 Warm', cold:'❄️ Koud', done:'✅ Opgevolgd'}[s.status] || '';
+      html += `<div class="sup-card ${statusCls}">
+        <div class="sup-card-head">
+          <div class="sup-card-photo">${s.cardPhoto ? `<img src="${s.cardPhoto}" alt="">` : '📇'}</div>
+          <div class="sup-card-body">
+            <div class="sup-company">${escapeHtml(s.company||'(geen naam)')}</div>
+            ${s.contact ? `<div class="sup-contact">${escapeHtml(s.contact)}</div>` : ''}
+            <div class="sup-meta">
+              ${s.booth ? `<span class="chip">📍 ${escapeHtml(s.booth)}</span>` : ''}
+              ${s.phase ? `<span class="chip phase">Fase ${s.phase}</span>` : ''}
+              ${statusLabel ? `<span class="chip status-${s.status}">${statusLabel}</span>` : ''}
+              ${stars ? `<span class="sup-rating">${stars}</span>` : ''}
+            </div>
+            ${catChips ? `<div class="sup-meta" style="margin-top:6px;">${catChips}</div>` : ''}
+            ${s.notes ? `<div class="sup-notes">${escapeHtml(s.notes)}</div>` : ''}
+          </div>
+        </div>
+        <div class="sup-actions">
+          <button onclick="openSupplierEditor('${s.id}')">✎ Bewerken</button>
+          ${s.phone ? `<button onclick="window.location.href='tel:${escapeHtml(s.phone)}'">📞 Bel</button>` : ''}
+          ${s.email ? `<button onclick="window.location.href='mailto:${escapeHtml(s.email)}'">✉ Mail</button>` : ''}
+          <button class="del" onclick="deleteSupplier('${s.id}')">🗑</button>
+        </div>
+      </div>`;
+    });
+  }
+  container.innerHTML = html;
+  // rebind search
+  const ss = document.getElementById('supSearch');
+  if (ss) ss.addEventListener('input', e => { searchTerm = e.target.value; renderSupplierView(); });
+}
+
+function openSupplierEditor(id) {
+  const existing = id ? (state.suppliers||[]).find(s => s.id === id) : null;
+  const s = existing ? JSON.parse(JSON.stringify(existing)) : {
+    id: 'sup_' + Date.now() + '_' + Math.random().toString(36).slice(2,7),
+    company:'', contact:'', booth:'', phase:'2', categories:[], phone:'', wechat:'', email:'', notes:'', rating:0, status:'', cardPhoto:'', createdAt: Date.now()
+  };
+  const catChips = Object.keys(CATALOG).map(k => {
+    const c = CATALOG[k];
+    const on = s.categories.includes(k);
+    return `<div class="cat-chip ${on?'on':''}" data-cat="${k}">${c.icon} ${c.label}</div>`;
+  }).join('');
+  const statusBtns = [['hot','🔥 Hot'],['warm','👍 Warm'],['cold','❄️ Koud'],['done','✅ Opgevolgd']].map(([v,l]) =>
+    `<div class="status-btn ${s.status===v?'on':''}" data-status="${v}">${l}</div>`).join('');
+  const phases = [['1','Fase 1'],['2','Fase 2'],['3','Fase 3']].map(([v,l]) =>
+    `<option value="${v}" ${s.phase===v?'selected':''}>${l}</option>`).join('');
+  const stars = [1,2,3,4,5].map(n => `<span class="star ${n<=s.rating?'on':''}" data-star="${n}">★</span>`).join('');
+  const editor = `<div class="sup-edit">
+    <h3>${existing ? 'Leverancier bewerken' : 'Nieuwe leverancier'}</h3>
+    <label>Bedrijfsnaam</label>
+    <input type="text" id="f_company" value="${escapeHtml(s.company)}">
+    <label>Contactpersoon</label>
+    <input type="text" id="f_contact" value="${escapeHtml(s.contact)}">
+    <div class="row2">
+      <div>
+        <label>Stand (hal + booth)</label>
+        <input type="text" id="f_booth" value="${escapeHtml(s.booth)}" placeholder="bv. 10.2 B08">
+      </div>
+      <div>
+        <label>Canton fase</label>
+        <select id="f_phase"><option value="">—</option>${phases}</select>
+      </div>
+    </div>
+    <label>Categorieën (tik meerdere aan)</label>
+    <div class="cat-chips" id="f_cats">${catChips}</div>
+    <div class="row2">
+      <div>
+        <label>Telefoon</label>
+        <input type="tel" id="f_phone" value="${escapeHtml(s.phone)}">
+      </div>
+      <div>
+        <label>WeChat ID</label>
+        <input type="text" id="f_wechat" value="${escapeHtml(s.wechat)}">
+      </div>
+    </div>
+    <label>Email</label>
+    <input type="email" id="f_email" value="${escapeHtml(s.email)}">
+    <label>Status</label>
+    <div class="status-row" id="f_status">${statusBtns}</div>
+    <label>Waardering</label>
+    <div class="star-row" id="f_rating">${stars}</div>
+    <label>Notities</label>
+    <textarea id="f_notes" placeholder="MOQ, betaaltermijn, Engels niveau, bijzonderheden...">${escapeHtml(s.notes)}</textarea>
+    <label>Visitekaartje</label>
+    <div class="photo-area" id="f_photo_area" onclick="document.getElementById('f_photo_input').click()">
+      ${s.cardPhoto ? `<img src="${s.cardPhoto}" alt="">` : '<div style="font-size:36px;">📷</div><div class="hint">Tik om foto te maken of kiezen</div>'}
+    </div>
+    <input type="file" id="f_photo_input" accept="image/*" capture="environment" style="display:none;">
+    <div class="btn-row">
+      <button class="btn-secondary" onclick="closeSupEditor()">Annuleer</button>
+      <button class="btn-primary" onclick="saveSupplier('${s.id}', ${existing?'true':'false'})">Opslaan</button>
+    </div>
+  </div>`;
+  const modal = document.getElementById('modal');
+  modal.querySelector('.modal-box').outerHTML = editor;
+  modal.classList.add('open');
+  // Bind working state on modal element
+  modal._sup = s;
+  // Bind category chips
+  modal.querySelectorAll('#f_cats .cat-chip').forEach(el => {
+    el.onclick = () => {
+      const k = el.dataset.cat;
+      const i = s.categories.indexOf(k);
+      if (i >= 0) { s.categories.splice(i,1); el.classList.remove('on'); }
+      else { s.categories.push(k); el.classList.add('on'); }
+    };
+  });
+  // Status buttons
+  modal.querySelectorAll('#f_status .status-btn').forEach(el => {
+    el.onclick = () => {
+      const v = el.dataset.status;
+      s.status = (s.status === v) ? '' : v;
+      modal.querySelectorAll('#f_status .status-btn').forEach(b => b.classList.toggle('on', b.dataset.status === s.status));
+    };
+  });
+  // Stars
+  modal.querySelectorAll('#f_rating .star').forEach(el => {
+    el.onclick = () => {
+      const n = parseInt(el.dataset.star);
+      s.rating = (s.rating === n) ? n-1 : n;
+      modal.querySelectorAll('#f_rating .star').forEach(st => st.classList.toggle('on', parseInt(st.dataset.star) <= s.rating));
+    };
+  });
+  // Photo input
+  document.getElementById('f_photo_input').addEventListener('change', e => {
+    const f = e.target.files[0];
+    if (!f) return;
+    const reader = new FileReader();
+    reader.onload = ev => {
+      const img = new Image();
+      img.onload = () => {
+        // Resize: longest side max 1200px, JPEG 0.72
+        const maxSide = 1200;
+        let w = img.width, hh = img.height;
+        if (w > hh) {
+          if (w > maxSide) { hh = hh * maxSide / w; w = maxSide; }
+        } else {
+          if (hh > maxSide) { w = w * maxSide / hh; hh = maxSide; }
+        }
+        const cv = document.createElement('canvas');
+        cv.width = w; cv.height = hh;
+        cv.getContext('2d').drawImage(img, 0, 0, w, hh);
+        s.cardPhoto = cv.toDataURL('image/jpeg', 0.72);
+        const area = document.getElementById('f_photo_area');
+        area.innerHTML = `<img src="${s.cardPhoto}" alt="">`;
+      };
+      img.src = ev.target.result;
+    };
+    reader.readAsDataURL(f);
+  });
+}
+
+function closeSupEditor() {
+  document.getElementById('modal').classList.remove('open');
+  // Restore default modal content
+  renderSupplierView();
+}
+
+function saveSupplier(id, isUpdate) {
+  const modal = document.getElementById('modal');
+  const s = modal._sup;
+  s.company = document.getElementById('f_company').value.trim();
+  s.contact = document.getElementById('f_contact').value.trim();
+  s.booth = document.getElementById('f_booth').value.trim();
+  s.phase = document.getElementById('f_phase').value;
+  s.phone = document.getElementById('f_phone').value.trim();
+  s.wechat = document.getElementById('f_wechat').value.trim();
+  s.email = document.getElementById('f_email').value.trim();
+  s.notes = document.getElementById('f_notes').value.trim();
+  s.updatedAt = Date.now();
+  if (!state.suppliers) state.suppliers = [];
+  if (isUpdate) {
+    const i = state.suppliers.findIndex(x => x.id === id);
+    if (i >= 0) state.suppliers[i] = s; else state.suppliers.push(s);
+  } else {
+    state.suppliers.push(s);
+  }
+  try {
+    saveState();
+  } catch(err) {
+    alert('Opslaan mislukt — mogelijk is de opslag vol (localStorage limit). Verwijder oude leveranciers of verklein foto.');
+    return;
+  }
+  modal.classList.remove('open');
+  // Rebuild modal box HTML for export view
+  modal.innerHTML = `<div class="modal-box"><h3 id="modalTitle">Export</h3><textarea id="modalText"></textarea><div class="btn-row"><button class="btn-secondary" onclick="copyModal()">Kopieer</button><button class="btn-primary" onclick="closeModal()">Sluit</button></div></div>`;
+  renderSupplierView();
+}
+
+function deleteSupplier(id) {
+  if (!confirm('Deze leverancier verwijderen?')) return;
+  state.suppliers = (state.suppliers||[]).filter(s => s.id !== id);
+  saveState();
+  renderSupplierView();
+}
+
 function escapeHtml(s) {
   if (s == null) return '';
   return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 }
 
-function renderAll() { renderTabs(); renderIntro(); renderStats(); renderItems(); }
+function renderAll() {
+  renderTabs();
+  if (currentCat === 'suppliers') {
+    renderSupplierView();
+  } else {
+    document.getElementById('intro').style.display = '';
+    document.getElementById('stats').style.display = '';
+    document.querySelector('.toolbar').style.display = '';
+    renderIntro(); renderStats(); renderItems();
+  }
+}
 
 document.getElementById('search').addEventListener('input', e => {
   searchTerm = e.target.value;
@@ -338,7 +625,7 @@ document.getElementById('onlyFilled').addEventListener('click', e => {
 });
 
 function exportData() {
-  // CSV export
+  // CSV export — products + suppliers
   const lines = [['Categorie','Item','Spec','Kleur','Leverancier','Offerte FOB','Currency','Offerte EUR','Target FOB EUR','Target VKP EUR','Factor','Status','Notitie'].join(',')];
   const rate = parseFloat(state.rate) || 0.92;
   Object.keys(CATALOG).forEach(ck => {
@@ -352,6 +639,14 @@ function exportData() {
       const row = [CATALOG[ck].label, item.name, item.spec, item.color, e.supplier, e.fob, item.currency, offerEur, item.target_fob_eur||'', item.target_vkp_eur||'', factor?factor.toFixed(2):'', status||'', e.note];
       lines.push(row.map(v => `"${String(v||'').replace(/"/g,'""')}"`).join(','));
     });
+  });
+  // Suppliers section
+  lines.push('');
+  lines.push(['Bedrijf','Contact','Stand','Fase','Categorieen','Telefoon','WeChat','Email','Status','Rating','Notities','Heeft visitekaartje'].join(','));
+  (state.suppliers||[]).forEach(s => {
+    const cats = (s.categories||[]).map(k => CATALOG[k]?CATALOG[k].label:k).join('; ');
+    const row = [s.company||'', s.contact||'', s.booth||'', s.phase||'', cats, s.phone||'', s.wechat||'', s.email||'', s.status||'', s.rating||'', (s.notes||'').replace(/\n/g,' '), s.cardPhoto?'ja':'nee'];
+    lines.push(row.map(v => { const str=String(v); return /[,"\n]/.test(str)?'"'+str.replace(/"/g,'""')+'"':str; }).join(','));
   });
   const csv = lines.join('\n');
   const modal = document.getElementById('modal');
@@ -376,8 +671,8 @@ function copyModal() {
 }
 function closeModal() { document.getElementById('modal').classList.remove('open'); }
 function resetData() {
-  if (confirm('Alle ingevulde prijzen wissen?')) {
-    state = { rate: state.rate, entries: {} };
+  if (confirm('Alle ingevulde prijzen wissen? (Leveranciers blijven staan)')) {
+    state.entries = {};
     saveState();
     renderAll();
   }
