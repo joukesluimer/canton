@@ -69,8 +69,20 @@
   .stats .ok { color:#2e7d32; border-color:#4caf50; }
   .stats .bad { color:#c62828; border-color:#e53935; }
   @media (min-width: 700px) {
-    .items { max-width:800px; margin:0 auto; }
-    .cat-intro { max-width:800px; margin:12px auto; }
+    body { background:#eef0f4; }
+    .toolbar { max-width:1200px; margin:0 auto; border-bottom:none; background:transparent; padding:14px 20px; }
+    .cat-intro { max-width:1200px; margin:12px auto; }
+    .stats { max-width:1200px; margin:0 auto; }
+    .items { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:repeat(2, 1fr); gap:14px; padding:0 20px 120px 20px; }
+    .items .empty { grid-column:1 / -1; }
+    .card { margin-bottom:0; }
+    .actions { max-width:1200px; margin:0 auto; left:auto; right:auto; border-radius:12px 12px 0 0; }
+    header { padding:14px 20px 0 20px; }
+    .tabs { max-width:1200px; margin:0 auto; }
+    .title { font-size:17px; }
+  }
+  @media (min-width: 1100px) {
+    .items { grid-template-columns:repeat(3, 1fr); }
   }
   .modal { position:fixed; inset:0; background:rgba(0,0,0,0.6); display:none; align-items:center; justify-content:center; z-index:200; padding:20px; }
   .modal.open { display:flex; }
@@ -84,37 +96,10 @@
   .card-img { position:absolute; top:10px; right:10px; width:56px; height:56px; border-radius:8px; overflow:hidden; background:#f0f2f5; border:1px solid #e3e5e8; }
   .card-img img { width:100%; height:100%; object-fit:cover; display:block; }
   .card-title, .card-spec { padding-right:64px; }
-  #fallback { display:none; position:fixed; inset:0; background:#fff; color:#1a1a1a; padding:24px; z-index:9999; font-family:-apple-system,sans-serif; overflow:auto; }
-  #fallback h2 { color:#1F3864; margin-top:0; }
-  #fallback ol { line-height:1.7; }
-  #fallback code { background:#f0f2f5; padding:2px 6px; border-radius:4px; font-size:13px; }
 
 </style>
 </head>
 <body>
-
-<div id="fallback">
-  <h2>⚠️ Open dit bestand in Safari</h2>
-  <p>Je ziet deze melding omdat het bestand nu wordt geopend in de <b>preview van de Bestanden-app</b>. Daarin werkt de interactieve app niet.</p>
-  <p><b>Zo open je 'm goed op iPhone:</b></p>
-  <ol>
-    <li>Ga naar de <b>Bestanden-app</b></li>
-    <li>Houd <code>CantonFair_Mobiel.html</code> <b>lang ingedrukt</b></li>
-    <li>Kies <b>Delen</b> → <b>Kopieer naar Safari</b> <i>(of "Open in Safari")</i></li>
-    <li>In Safari: tik op het <b>deel-icoon</b> onderaan → <b>"Zet op beginscherm"</b></li>
-  </ol>
-  <p>Daarna heb je 'm als app-icoon op je beginscherm en werkt alles offline.</p>
-  <p style="color:#5a6270;font-size:13px;margin-top:20px;">Werkt Safari ook niet? Mail het bestand naar jezelf en open vanuit Mail.</p>
-</div>
-<script>
-// Show fallback if main script did not disable it within 800ms
-window.__mainReady = false;
-setTimeout(function(){
-  if (!window.__mainReady) {
-    document.getElementById('fallback').style.display = 'block';
-  }
-}, 800);
-</script>
 
 <header>
   <div class="title-row">
@@ -207,7 +192,7 @@ function renderTabs() {
     const b = document.createElement('button');
     b.className = 'tab' + (k === currentCat ? ' active' : '');
     b.innerHTML = `${c.icon} ${c.label}<span class="count">${c.items.length}</span>`;
-    b.onclick = () => { currentCat = k; searchTerm=''; document.getElementById('search').value=''; renderAll(); window.__mainReady = true;; };
+    b.onclick = () => { currentCat = k; searchTerm=''; document.getElementById('search').value=''; renderAll(); ; };
     tabs.appendChild(b);
   });
 }
